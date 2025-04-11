@@ -19,7 +19,23 @@ Ce projet est une application TodoList déployée sur Scalingo.
    - Créer un fichier `.env`
    - Ajouter la variable `MONGO_URL` avec l'URL de connexion 
 
-4. **Lancer l'application** :
+4. **Vérification variable** :
+
+- Vérifie que ton fichier de connexion MongoDB (`db.js`) utilise bien :
+
+```js
+const connectionString = process.env.SCALINGO_MONGO_URL;
+MongoClient.connect(connectionString, options, (err, mongoDb) => {
+  if (err) {
+    reject(err);
+    console.error("Erreur connexion MongoDB:", err);
+  } else {
+    db = mongoDb.db().collection(`todos`);
+    resolve();
+  }
+});
+```
+5. **Lancer l'application** :
    ```sh
    npm start
    ```
