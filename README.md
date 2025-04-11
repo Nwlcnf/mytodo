@@ -52,3 +52,4 @@ Ce projet est une application TodoList déployée sur Scalingo.
    ```
 
 L'application est maintenant accessible en ligne.
+https://mytodolist.osc-fr1.scalingo.io/
